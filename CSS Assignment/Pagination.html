@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <style>
+       .pagination{
+            text-align: center;
+       } 
+
+       a{
+        color: black;
+
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+        border-radius: 5px;
+        text-align: center;
+        align-items: center;
+       }
+
+       .pagination a.active{
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+       }
+
+       .pagination a:hover:not(.active){
+        background-color: #ddd;
+        border-radius: 5px;
+       }
+    </style>
+</head>
+<body>
+    <H1>PAGE 1</H1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste eaque quae cupiditate optio modi praesentium officia quisquam placeat fugiat dolor distinctio, vel nostrum perferendis deleniti repellat dolore! Id consectetur repellendus reprehenderit soluta dolorum quaerat nemo accusantium optio molestiae incidunt nulla, dolor delectus repellat sequi eius veritatis numquam! Consectetur esse nesciunt provident similique? Error maxime repellat dolorem!</p>
+
+    <nav class="pagination">
+        <a href="Pagination.html">&#60;</a>
+        <a href="#home"  class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="">&gt;	
+
+        </a>
+    </nav>
+
+    <section id="home"><h2>Home Section</h2></section>
+
+    <section id="about"><h2>About Us</h2></section>
+    <section id="services"><h2>Our Services</h2></section>
+    <section id="contact"><h2>Contact Us</h2></section>
+</body>
+</html>
