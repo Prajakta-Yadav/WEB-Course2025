@@ -15,3 +15,10 @@ let num1 = 200;
 let num2 = 50;
 
 Calc(num1, num2);
+
+//return function with parameter
+function Cal(num1, num2){
+    return num1 + num2;
+}
+let result = Cal(100, 50);
+console.log(result);
