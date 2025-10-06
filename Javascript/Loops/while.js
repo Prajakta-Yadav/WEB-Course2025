@@ -31,17 +31,17 @@ console.log("Sum of Digits: " +sum);
 console.log("Keep asking for a password until it correct");
 
 let correctpwd = 2222;
-let attempt = "";
-let tries =0;
+let attempt = ""; //store array item one by one 
+let tries =0; //count loop iteration
 
 let attempts = [1111, 2222,8655,8976];
-let index =0;
+let index =0; //array index
 
 while(attempt !== correctpwd){
-    attempt = attempts[index];
-    console.log("Trying:", attempt);
-    tries++;
-    index++;
+    attempt = attempts[index]; //get array item one by one based on index
+    console.log("Trying:", attempt); //print current attempt or array value. 
+    tries++; //count iteration
+    index++; //move to next index
 }
 
 console.log("Password accepted after", tries, "attempt(s)");
