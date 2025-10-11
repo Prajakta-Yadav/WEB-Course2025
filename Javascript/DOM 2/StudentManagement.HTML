@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Student</title>
+</head>
+<body onload="loadStudent()">
+    <h1>Student Management System</h1>
+
+    <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Student List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            <!-- Student rows will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        let students = [];
+        let currentId = 1;
+
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const studentId = document.getElementById('studentId').value;
+
+            if (studentId) {
+                // Update existing student
+                const student = students.find(s => s.id == studentId);
+                student.name = name;
+                student.age = age;
+            } else {
+                // Add new student
+                students.push({ id: currentId++, name, age });
+            }
+
+            this.reset();
+            document.getElementById('studentId').value = '';
+            loadStudent();
+        });
+
+        function loadStudent() {
+            const tbody = document.getElementById('studentTableBody');
+            tbody.innerHTML = '';
+            students.forEach(student => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.age}</td>
+                    <td>
+                        <button onclick="editStudent(${student.id})">Edit</button>
+                        <button onclick="deleteStudent(${student.id})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function editStudent(id) {
+            const student = students.find(s => s.id == id);
+            document.getElementById('studentId').value = student.id;    
+
+            document.getElementById('name').value = student.name;
+            document.getElementById('age').value = student.age;
+        }
+        function deleteStudent(id) {
+            students = students.filter(s => s.id != id);
+            loadStudent();
+        }
+
+    </script>
+    
+</body>
+</html>

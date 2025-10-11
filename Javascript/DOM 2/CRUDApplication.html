@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Students Application</title>
+</head>
+<body onload="loadStudents()">
+    <h2>Student List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentBody">
+            <!-- Student rows will be added here dynamically -->
+        </tbody>
+
+    </table>
+
+    <h3>Add New Student</h3>
+
+    <form action="" onsubmit="addStudent(); return false;">
+        <input type="number" name="" id="roll" placeholder="Enter Roll Number">
+
+        <input type="text" name="" id="name" placeholder="Enter Name">
+        <input type="number" name="" id="marks" placeholder="Enter Marks">
+        <button type="submit">Add New Record</button>
+        <button type="button" onclick="clearFields()">Clear</button>
+    </form>
+
+    <script>
+        var students = [
+            { roll: 1, name: "John Doe", marks: 85 },
+            { roll: 2, name: "Jane Smith", marks: 90 },
+            { roll: 3, name: "Sam Brown", marks: 78 }
+        ]
+
+        function loadStudents() {
+            var studentBody = document.getElementById("studentBody");
+            studentBody.innerText = "";
+
+           for(let s of students){
+            studentBody.innerHTML += `<tr>
+                <td>${s.roll}</td>
+                <td>${s.name}</td>
+                <td>${s.marks}</td>
+            </tr>`;
+
+           }
+        }
+
+        function addStudent() {
+            var roll = document.getElementById("roll").value;
+            var name = document.getElementById("name").value;
+            var marks = document.getElementById("marks").value;
+
+            var newStudent = { roll: parseInt(roll.value), name: name.value, marks: parseInt(marks.value) };
+            students.push(newStudent);
+            loadStudents();
+
+            roll.value = "";
+            name.value = "";    
+            marks.value = "";
+            
+        
+             
+        }
+    </script>
+</body>
+</html>
