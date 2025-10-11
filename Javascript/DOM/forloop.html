@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="" id="">
+        <input type="email" name="" id="">
+        <input type="password" name="" id="">
+    </form>
+
+
+    <script>
+        let form = document.forms[0];
+        let inputs = form.elements;
+        let placeHolders = ["Enter Name", "Enter Email", "Enter Password"];
+
+        for(let i=0; i<inputs.length; i++){
+            inputs[i].placeholder = placeHolders[i];
+            inputs[i].style.margin = "10px";
+            inputs[i].style.padding = "10px";
+            inputs[i].style.borderRadius = "5px";
+            inputs[i].style.border = "2px solid blue";
+
+        }
+    </script>
+
+</body>
+</html>

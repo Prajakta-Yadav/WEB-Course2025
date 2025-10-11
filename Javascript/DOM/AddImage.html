@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddImage and Button function</title>
+</head>
+<body>
+    <img src="AdminLogin.jpeg" alt="AdminLogin" width="300" height="300">
+
+    <div>
+        <form action="">
+            <h2>This is Form</h2>
+            <input type="email">
+            <input type="button" value="Login">
+
+        </form>
+    </div>
+
+    <button onclick="ChangeProp()">Change Property</button>
+
+   <!-- <script src="script.js"></script> -->
+
+    <script>
+        function ChangeProp(){
+            window.document.images[0].width=500;
+            window.document.images[0].height=500;
+            window.document.forms[0].elements[0].value = "Company Name"; 
+        }
+        document.forms[0].elements[1].value ="Fork Infosystem";
+    </script>
+</body>
+</html>
