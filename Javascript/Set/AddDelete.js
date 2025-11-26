@@ -12,3 +12,15 @@ console.log(numbers);
 numbers.delete(100);
 console.log(numbers);
 
+set2.delete();
+console.log("DELETE: ", set2);  //no delete any value
+
+set2.delete(3);
+console.log("DELETE: ", set2);  //delete argument value
+
+set3.clear(4);
+console.log("CLEAR: ", set3);  //clear whole set values
+
+set3.clear();
+console.log("CLEAR: ", set3); //clear whole set values
+
