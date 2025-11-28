@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval</title>
+</head>
+<body>
+    <h1 id="clock"></h1>
+   
+    <script>
+        let clock = document.getElementById("clock");
+        setInterval(()=>{
+            let now = new Date().toDateString();
+            clock.innerText = now;
+
+            // Write code for show time 
+            let time = new Date().toTimeString();
+            clock.innerText = time; 
+        }, 1000);
+
+
+        // show date and time together
+
+        
+    </script>
+</body>
+</html>
