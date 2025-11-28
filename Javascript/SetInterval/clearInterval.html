@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+</head>
+<body>
+    <img src="" alt="" srcset=""  width="500" height="500" id="img">
+
+    <h1 id="clock"></h1>
+
+    <button onclick="stop()">Stop Me</button>
+
+    <script>
+
+        //DOM 
+
+        let slide = document.getElementById('img');
+        let clock = document.getElementById('clock');
+
+        //Array and index
+        let images = ["digital image.png", "javaAPI Javascript.png", "Nodejs javascript.png"]; 
+        let index = 0; 
+
+        let id = setInterval(() =>{   //function store in variable 
+  
+            //img code
+            slide.src = images[index];
+            index = (index+1) % images.length;
+
+            //clock code
+            let now = new Date().toTimeString();
+            clock.innerText = now; 
+        }, 3000)
+
+        alert("Hello I am alert");
+
+        function stop(){
+            confirm("Stopped Slider");
+            clearInterval(id); 
+        }
+
+    </script>
+</body>
+</html>

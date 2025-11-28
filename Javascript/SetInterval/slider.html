@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+</head>
+<body>
+    <img src="" alt="" srcset=""  width="500" height="500" id="img">
+
+    <h1 id="clock"></h1>
+
+    <script>
+
+        //DOM 
+
+        let slide = document.getElementById('img');
+        let clock = document.getElementById('clock');
+
+        //Array and index
+        let images = ["digital image.png", "javaAPI Javascript.png", "Nodejs javascript.png"]; 
+        let index = 0; 
+
+        setInterval(() =>{
+
+            //img code
+            slide.src = images[index];
+            index = (index+1) % images.length;
+
+            //clock code
+           // let now = new Date().toTimeString();
+            //clock.innerText = now; 
+
+           // let out = document.getElementById('clock');
+
+            let dt = new Date();
+            clock.innerHTML = `${dt.toDateString()}  ${dt.toLocaleTimeString()}`;
+        }, 3000)
+
+
+    </script>
+</body>
+</html>
