@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Slider Start/ Stop</title>
+
+    <style>
+        p{
+            font-size: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="msg1">This Is Paragraph One.</p>
+    <p id="msg2">This Is Paragraph Two.</p>
+    <p id="msg3">This Is Paragraph Three.</p>
+
+    <h2 id="clock"></h2>
+
+    <button onclick="stopSlider()">Stop</button>
+    <button onclick="startSlider()">Start</button>
+
+    <script>
+        let paras = document.getElementsByTagName('p');
+        let index = 0;
+        let sliderInterval;
+
+        function showParagraph(i){
+            for(let p of paras){
+                p.style.display = 'none';
+            }
+            paras[i].style.display = 'block';
+        }
+
+        function startSlider(){
+            sliderInterval = setInterval(() => {
+                showParagraph(index);
+                index = (index + 1) % paras.length;
+            }, 1000);
+        }
+
+        function stopSlider(){
+            clearInterval(sliderInterval);
+        }
+
+        // Start the slider initially
+        startSlider();
+    </script>
+</body>
+</html>
